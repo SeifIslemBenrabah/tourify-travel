@@ -79,13 +79,13 @@ export const Footer: React.FC = () => {
 
         {/* Info Column */}
         <div className={`flex flex-col ${isRTL ? "text-right items-end" : "text-left items-start"}`}>
-          <div className="flex items-center font-display font-black text-xl tracking-wider">
+          <div className={`flex items-center font-display font-black text-xl tracking-wider ${isRTL ? "w-full justify-end" : "w-full justify-start"}`}>
             <img src={logo} alt="logo" className="w-20 h-20 cursor-pointer" onClick={() => navigateTo("home")} />
           </div>
           <p className="text-xs text-white/60 leading-relaxed font-sans">
             {t.footerInfo}
           </p>
-          <div className="flex gap-3 pt-2 justify-start">
+          <div className={`flex gap-3 pt-2 ${isRTL ? "w-full justify-end" : "w-full justify-start"}`}>
             <a
               id="social-ig-link"
               href="https://instagram.com"
