@@ -3,12 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { LiveChat } from "./components/LiveChat";
+import { Preloader } from "./components/Preloader";
 
 import { Home } from "./components/pages/Home";
 import { Destinations } from "./components/pages/Destinations";
@@ -53,9 +54,12 @@ const MainContent: React.FC = () => {
 };
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <AppProvider>
-      <MainContent />
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      {!loading && <MainContent />}
     </AppProvider>
   );
 }
