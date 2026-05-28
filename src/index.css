@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Google Sans Flex", "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Google Sans Flex", "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  --color-primary: #11354E;
+  --color-primary-dark: #0c2638;
+  --color-primary-light: #1e5b85;
+  --color-accent: #DC2626;
+  --color-accent-hover: #B91C1C;
+}
+
+/* Force Noto Kufi Arabic font for Arabic document states and avoid bold weights */
+html[lang="ar"],
+html[lang="ar"] * {
+  font-family: "Noto Kufi Arabic", "Google Sans Flex", "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Avoid overly bold and heavy fonts across all languages, keeping typography elegant, legible and clean */
+html .font-black,
+html .font-extrabold,
+html .font-bold,
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6,
+html strong,
+html b {
+  font-weight: 500 !important;
+}
+html[lang="en"],
+html[lang="en"] *,
+html[lang="fr"],
+html[lang="fr"] * {
+  font-family: "Google Sans Flex", "Google Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Glassmorphism custom classes - styled according to Elegant Dark specs */
+.glass {
+  background: rgba(17, 53, 78, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(12, 38, 56, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hide scrollbars but preserve scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Tourify",
+  "description": "Premium Algerian travel agency offering local and international luxury vacation packages, hotel bookings, visa assistance, and customized tourism experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
