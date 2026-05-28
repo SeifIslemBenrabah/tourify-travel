@@ -78,14 +78,14 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
         {/* Info Column */}
-        <div className={`flex flex-col ${isRTL ? "text-right items-end" : "text-left items-start"}`}>
-          <div className={`flex items-center font-display font-black text-xl tracking-wider ${isRTL ? "w-full justify-end" : "w-full justify-start"}`}>
+        <div className={`flex  flex-col ${isRTL ? "text-right space-y-4 items-end" : "text-left items-start"}`}>
+          <div className={`flex items-center font-display font-black text-xl tracking-wider ${isRTL ? "w-full items-end" : "w-full items-start"}`}>
             <img src={logo} alt="logo" className="w-20 h-20 cursor-pointer" onClick={() => navigateTo("home")} />
           </div>
-          <p className="text-xs text-white/60 leading-relaxed font-sans">
+          <p className={`text-xs text-white/60 leading-relaxed font-sans w-full ${isRTL ? "items-end" : "items-start"}`}>
             {t.footerInfo}
           </p>
-          <div className={`flex gap-3 pt-2 ${isRTL ? "w-full justify-end" : "w-full justify-start"}`}>
+          <div className={`flex gap-3 pt-2 ${isRTL ? "w-full items-end" : "w-full items-start"}`}>
             <a
               id="social-ig-link"
               href="https://instagram.com"
