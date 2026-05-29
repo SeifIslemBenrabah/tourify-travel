@@ -25,11 +25,7 @@ const MainContent: React.FC = () => {
   const isHome = location.pathname === "/";
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-between bg-primary-dark select-none text-white selection:bg-accent selection:text-white overflow-x-hidden">
-      {/* Elegant Dark Atmospheric Backdrops */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,#1e5b85_0%,transparent_60%)] opacity-35 pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&q=80&w=1024')] bg-cover bg-center mix-blend-overlay opacity-15 pointer-events-none z-0" />
-
+    <div className="relative min-h-screen flex flex-col justify-between bg-white select-none text-primary selection:bg-accent selection:text-white overflow-x-hidden">
       <div className="relative z-10 flex flex-col min-h-screen justify-between">
         <Navbar />
         <main className="flex-grow">

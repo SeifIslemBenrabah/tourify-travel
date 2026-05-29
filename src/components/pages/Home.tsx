@@ -103,10 +103,10 @@ export const Home: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-24 pb-20 text-white bg-primary-dark">
+    <div className="space-y-24 pb-20 text-primary bg-white">
 
       {/* Immersive Hero Section - Deep Blue Ambient Fullscreen Visual */}
-      <section className="relative min-h-screen w-full flex items-center pt-14 pb-16 lg:pt-10 lg:pb-10 overflow-visible bg-primary-dark">
+      <section className="relative min-h-screen w-full flex items-center pt-14 pb-16 lg:pt-10 lg:pb-10 overflow-visible bg-white">
         {/* Fullscreen Background Image with Deep Blue Atmosphere overlay */}
         <div className="absolute inset-0 w-full h-full z-0">
           <img
@@ -115,9 +115,9 @@ export const Home: React.FC = () => {
             className="w-full h-full object-cover opacity-50"
           />
           {/* Deep Blue Gradient overlay specifically behind the text (left side for LTR, right for RTL) */}
-          <div className={`absolute inset-0 bg-gradient-to-r ${isRTL ? "from-black/10 via-[#0c2638]/95 to-[#0c2638]" : "from-[#0c2638] via-[#0c2638]/95 to-black/10"} pointer-events-none z-[1]`} />
+          <div className={`absolute inset-0 bg-gradient-to-r ${isRTL ? "from-transparent via-white/35 to-white" : "from-white via-white/35 to-white/0"} pointer-events-none z-[1]`} />
           {/* Linear bottom black blend for seamless section transition */}
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0c2638] to-transparent z-[2]" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent z-[2]" />
         </div>
 
         {/* Hero Content - Start-aligned Deluxe Presentation Layer */}
@@ -133,26 +133,26 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Huge Condensed Heading Pair */}
-            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl leading-[1.0] tracking-tight uppercase text-white drop-shadow-md">
+            <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl leading-[1.0] tracking-tight uppercase text-primary drop-shadow-md">
               {currentLanguage === "ar" ? (
                 <>
                   استكشف العالم <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30">بتجارب سفر مريحة</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0c2638] via-[#0c2638] to-[#0c2638]/40">بتجارب سفر مريحة</span>
                 </>
               ) : currentLanguage === "fr" ? (
                 <>
                   Explorez le monde <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30">avec des expériences de voyage confortables</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0c2638] via-[#0c2638] to-[#0c2638]/40">avec des expériences de voyage confortables</span>
                 </>
               ) : (
                 <>
                   Explore the world <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30">with comfortable travel experiences</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0c2638] via-[#0c2638] to-[#0c2638]/40">with comfortable travel experiences</span>
                 </>
               )}
             </h1>
 
-            <p className="text-sm sm:text-base text-white/75 font-light max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base text-primary/60 font-light max-w-2xl leading-relaxed">
               {currentLanguage === "ar"
                 ? "مغامرات استكشافية حصرية، رفاهية بلا حدود، وتخطيط مثالي يناسب نمط حياتك المترف من قلب رمال طاسيلي إلى عواصم العالم."
                 : currentLanguage === "fr"
@@ -179,7 +179,7 @@ export const Home: React.FC = () => {
             <button
               id="hero-secondary-cta"
               onClick={() => navigateTo("offers")}
-              className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center"
+              className="px-8 py-4 bg-white/5 border border-primary/10 hover:bg-white/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer text-center"
             >
               {currentLanguage === "ar" ? "عروض حصرية" : "EXPLORE OFFERS"}
             </button>
@@ -187,7 +187,7 @@ export const Home: React.FC = () => {
 
           {/* Centered Deluxe Research Search Bar */}
           <div className="max-w-5xl w-full relative z-20 animate-in fade-in-50 slide-in-from-bottom-8 duration-900 delay-150">
-            <form onSubmit={handleSearchSubmit} className="p-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-[28px] text-white flex flex-col md:flex-row gap-4 items-center shadow-2xl">
+            <form onSubmit={handleSearchSubmit} className="p-3 bg-white/10 backdrop-blur-xl border border-primary/10 rounded-[28px] text-primary flex flex-col md:flex-row gap-4 items-center shadow-2xl">
 
               {/* Destination Input field */}
               <div className={`flex-1 px-4 py-2 w-full ${isRTL ? "text-right" : "text-left"}`}>
@@ -195,14 +195,14 @@ export const Home: React.FC = () => {
                   {currentLanguage === "ar" ? "الوجهة المطلوبة" : "Destination"}
                 </label>
                 <div className="flex items-center gap-2.5">
-                  <Search className="text-white/40 shrink-0" size={16} weight="thin" />
+                  <Search className="text-primary/60 shrink-0" size={16} weight="thin" />
                   <input
                     id="hero-research-query"
                     type="text"
                     value={localQuery}
                     onChange={(e) => setLocalQuery(e.target.value)}
                     placeholder={t.searchPlaceholder}
-                    className={`bg-transparent text-sm w-full text-white placeholder-white/45 outline-none font-medium ${isRTL ? "text-right" : "text-left"}`}
+                    className={`bg-transparent text-sm w-full text-primary placeholder-white/45 outline-none font-medium ${isRTL ? "text-right" : "text-left"}`}
                   />
                 </div>
               </div>
@@ -216,20 +216,20 @@ export const Home: React.FC = () => {
                   {currentLanguage === "ar" ? "نوع الرحلة الفاخرة" : "LUXURY CATEGORY"}
                 </label>
                 <div className="flex items-center gap-2 justify-between cursor-pointer">
-                  <Compass className="text-white/40 shrink-0" size={16} weight="thin" />
+                  <Compass className="text-primary/60 shrink-0" size={16} weight="thin" />
                   <div className="relative w-full">
                     <select
                       id="hero-research-category"
                       value={localCategory}
                       onChange={(e) => setLocalCategory(e.target.value as any)}
-                      className="bg-transparent text-sm text-white font-medium outline-none w-full cursor-pointer appearance-none pr-6"
+                      className="bg-transparent text-sm text-primary font-medium outline-none w-full cursor-pointer appearance-none pr-6"
                     >
-                      <option value="all" className="bg-[#11354E] text-white font-medium">{t.all}</option>
-                      <option value="local" className="bg-[#11354E] text-white font-medium">{t.local}</option>
-                      <option value="international" className="bg-[#11354E] text-white font-medium">{t.international}</option>
+                      <option value="all" className="bg-[#11354E] text-primary font-medium">{t.all}</option>
+                      <option value="local" className="bg-[#11354E] text-primary font-medium">{t.local}</option>
+                      <option value="international" className="bg-[#11354E] text-primary font-medium">{t.international}</option>
                     </select>
                   </div>
-                  <ChevronDown size={14} className="text-white/40 shrink-0 pointer-events-none" weight="thin" />
+                  <ChevronDown size={14} className="text-primary/60 shrink-0 pointer-events-none" weight="thin" />
                 </div>
               </div>
 
@@ -241,7 +241,7 @@ export const Home: React.FC = () => {
                 <label className="block text-[10px] uppercase font-bold text-accent mb-1 tracking-[0.15em]">
                   {currentLanguage === "ar" ? "حالة الحجوزات" : "BOOKING WINDOW"}
                 </label>
-                <span className="block text-xs font-semibold text-white/80">
+                <span className="block text-xs font-semibold text-primary/60">
                   {currentLanguage === "ar" ? "تأشيرات سريعة وحجوزات حصرية" : "Exclusive VIP Openings"}
                 </span>
               </div>
@@ -275,7 +275,7 @@ export const Home: React.FC = () => {
           <h2 className="font-display font-black text-3xl sm:text-4xl uppercase tracking-wide">
             {t.popularDestTitle}
           </h2>
-          <p className="text-white/60 text-sm max-w-2xl font-sans">
+          <p className="text-primary/60 text-sm max-w-2xl font-sans">
             {t.popularDestSub}
           </p>
         </div>
@@ -287,7 +287,7 @@ export const Home: React.FC = () => {
             return (
               <div
                 key={dest.id}
-                className="group relative rounded-3xl overflow-hidden bg-primary shadow-xl border border-white/5 flex flex-col hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300"
+                className="group relative rounded-3xl overflow-hidden bg-[#f0f4f8] shadow-xl border border-primary/10 flex flex-col hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300"
               >
                 {/* Product image */}
                 <div className="relative h-64 overflow-hidden">
@@ -296,7 +296,7 @@ export const Home: React.FC = () => {
                     alt={dest.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-4 left-4 bg-primary-dark/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase px-3 py-1.5 rounded-full border border-white/10 z-10">
+                  <span className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-primary text-[10px] font-bold uppercase px-3 py-1.5 rounded-full border border-primary/10 z-10">
                     {dest.category === "local" ? t.local : t.international}
                   </span>
 
@@ -309,27 +309,27 @@ export const Home: React.FC = () => {
                     <div className="flex items-center gap-1 text-accent text-xs font-semibold">
                       <Star size={14} className="fill-accent text-accent" weight="thin" />
                       <span>{dest.rating}</span>
-                      <span className="text-white/45 font-normal">({dest.reviewsCount} {currentLanguage === "ar" ? "مراجعة" : "reviews"})</span>
+                      <span className="text-primary/60 font-normal">({dest.reviewsCount} {currentLanguage === "ar" ? "مراجعة" : "reviews"})</span>
                     </div>
 
-                    <h3 className="font-display font-bold text-xl uppercase text-white tracking-wide group-hover:text-accent transition-colors line-clamp-1">
+                    <h3 className="font-display font-bold text-xl uppercase text-primary tracking-wide group-hover:text-accent transition-colors line-clamp-1">
                       {dest.name}
                     </h3>
 
-                    <div className="flex items-center gap-1.5 text-xs text-white/60">
+                    <div className="flex items-center gap-1.5 text-xs text-primary/60">
                       <MapPin size={13} className="text-accent" weight="thin" />
                       <span className="truncate">{dest.country}</span>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                  <div className="pt-4 border-t border-primary/10 flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] uppercase text-white/40 font-bold">{t.durationLabel}</p>
-                      <p className="text-xs font-semibold text-white">{dest.duration}</p>
+                      <p className="text-[10px] uppercase text-primary/60 font-bold">{t.durationLabel}</p>
+                      <p className="text-xs font-semibold text-primary">{dest.duration}</p>
                     </div>
 
                     <div className={`${isRTL ? "text-left" : "text-right"}`}>
-                      <p className="text-[10px] uppercase text-white/40 font-bold">
+                      <p className="text-[10px] uppercase text-primary/60 font-bold">
                         {currentLanguage === "ar" ? "تبدأ من" : "Starting price"}
                       </p>
                       <p className="text-base font-black text-accent font-sans">
@@ -345,7 +345,7 @@ export const Home: React.FC = () => {
                       setActiveDestinationId(dest.id);
                       navigateTo("destination-details", dest.id);
                     }}
-                    className="w-full mt-2 py-3 bg-white/5 hover:bg-accent text-white hover:text-white border border-white/10 hover:border-transparent rounded-2xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1"
+                    className="w-full mt-2 py-3 bg-white/5 hover:bg-accent-white border border-primary/10 hover:border-transparent rounded-2xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1"
                   >
                     <span>{t.exploreDetail}</span>
                     <ArrowUpRight size={14} weight="thin" />
@@ -360,7 +360,7 @@ export const Home: React.FC = () => {
 
       {/* Special Promo Section with live simulated countdown */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl overflow-hidden relative min-h-[420px] bg-primary border border-white/5 flex flex-col md:flex-row items-stretch shadow-2xl">
+        <div className="rounded-3xl overflow-hidden relative min-h-[420px] bg-[#f0f4f8] border border-primary/10 flex flex-col md:flex-row items-stretch shadow-2xl">
           {/* Background visuals */}
           <div className="absolute inset-0 bg-radial-gradient opacity-10 pointer-events-none" />
 
@@ -381,27 +381,27 @@ export const Home: React.FC = () => {
               {t.countdownPromo}
             </span>
             <div className="flex gap-3 justify-start items-center">
-              <div className="bg-primary-dark/80 border border-white/10 p-3 rounded-2xl text-center min-w-[70px]">
-                <span className="block font-sans text-2xl font-black text-white">{timeRemaining.h}</span>
-                <span className="text-[10px] text-white/50 uppercase">{t.hours}</span>
+              <div className="bg-white/80 border border-primary/10 p-3 rounded-2xl text-center min-w-[70px]">
+                <span className="block font-sans text-2xl font-black text-primary">{timeRemaining.h}</span>
+                <span className="text-[10px] text-primary/60 uppercase">{t.hours}</span>
               </div>
               <span className="text-2xl font-bold text-accent">:</span>
-              <div className="bg-primary-dark/80 border border-white/10 p-3 rounded-2xl text-center min-w-[70px]">
-                <span className="block font-sans text-2xl font-black text-white">{timeRemaining.m}</span>
-                <span className="text-[10px] text-white/50 uppercase">{t.minutes}</span>
+              <div className="bg-white/80 border border-primary/10 p-3 rounded-2xl text-center min-w-[70px]">
+                <span className="block font-sans text-2xl font-black text-primary">{timeRemaining.m}</span>
+                <span className="text-[10px] text-primary/60 uppercase">{t.minutes}</span>
               </div>
               <span className="text-2xl font-bold text-accent">:</span>
-              <div className="bg-primary-dark/80 border border-white/10 p-3 rounded-2xl text-center min-w-[70px]">
-                <span className="block font-sans text-2xl font-black text-white">{timeRemaining.s}</span>
-                <span className="text-[10px] text-white/50 uppercase">s</span>
+              <div className="bg-white/80 border border-primary/10 p-3 rounded-2xl text-center min-w-[70px]">
+                <span className="block font-sans text-2xl font-black text-primary">{timeRemaining.s}</span>
+                <span className="text-[10px] text-primary/60 uppercase">s</span>
               </div>
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-wider text-white">
+              <h3 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-wider text-primary">
                 {currentLanguage === "ar" ? "موسم تاسيلي-جانت الربيعي الاستثنائي" : "Ultimate Saharan Oasis Springs Code"}
               </h3>
-              <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
+              <p className="text-xs sm:text-sm text-primary/60 font-sans leading-relaxed">
                 {currentLanguage === "ar"
                   ? "سارع بحجز رحلة السفاري الربيعية الخاصة بك إلى عمق الصحراء الجزائرية واستفد من حسم 15,000 د.ج للشخص الواحد. العرض السخي يشمل الطيران المباشر، طواقم الحراسة، الإرشاد، الوجبات، ومركبات الدفع الرباعي الفخمة."
                   : "Reserve your spring safari deep inside the red sands of Djanet, receiving an immediate 15,000 DA package reduction per traveler. Complete flights, private camp coordinators, Tuareg assistance and high board nutrition included."}
@@ -411,7 +411,7 @@ export const Home: React.FC = () => {
             <button
               id="home-promo-btn"
               onClick={() => navigateTo("offers")}
-              className="py-3 px-8 rounded-2xl bg-accent hover:bg-accent-hover text-white text-xs font-bold uppercase tracking-widest transition-all shadow-lg shadow-accent/20 cursor-pointer self-start"
+              className="py-3 px-8 rounded-2xl bg-accent-white text-xs font-bold uppercase tracking-widest transition-all shadow-lg shadow-accent/20 cursor-pointer self-start"
             >
               {currentLanguage === "ar" ? "اكتشف العروض الموسمية" : "Unlock Exclusive Passes"}
             </button>
@@ -431,13 +431,13 @@ export const Home: React.FC = () => {
           <h2 className="font-display font-black text-3xl sm:text-4xl uppercase tracking-wide">
             {t.servicesTitle}
           </h2>
-          <p className="text-white/60 text-sm max-w-2xl font-sans">
+          <p className="text-primary/60 text-sm max-w-2xl font-sans">
             {t.servicesSub}
           </p>
         </div>
 
         {/* Dynamic services listing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-primary">
           {[
             {
               title: currentLanguage === "ar" ? "حجز تذاكر الطيران" : "Bespoke Flight Booking",
@@ -457,16 +457,16 @@ export const Home: React.FC = () => {
           ].map((srv, idx) => (
             <div
               key={idx}
-              className={`p-8 rounded-3xl bg-primary hover:bg-[#1c4b6e] border border-white/5 hover:border-accent/15 transition-all duration-300 ${isRTL ? "text-right" : "text-left"
+              className={`p-8 rounded-3xl bg-[#f0f4f8] hover:bg-[#1c4b6e] border border-primary/10 hover:border-accent/15 transition-all duration-300 ${isRTL ? "text-right" : "text-left"
                 }`}
             >
-              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/10">
+              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-primary/10">
                 {srv.icon}
               </div>
               <h4 className="font-display font-bold text-lg uppercase tracking-wider text-[#FFFFFF]">
                 {srv.title}
               </h4>
-              <p className="text-xs text-white/60 leading-relaxed font-sans mt-3">
+              <p className="text-xs text-primary/60 leading-relaxed font-sans mt-3">
                 {srv.desc}
               </p>
             </div>
@@ -475,11 +475,11 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-primary/45 py-20 border-y border-white/5">
+      <section className="bg-[#f0f4f8]/5 py-20 border-y border-primary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-16">
             <span className="text-xs font-bold tracking-[0.25em] text-accent uppercase">{t.whyChooseUsTitle}</span>
-            <h2 className="font-display font-black text-3xl sm:text-4xl uppercase text-white">
+            <h2 className="font-display font-black text-3xl sm:text-4xl uppercase text-primary">
               {currentLanguage === "ar" ? "الريادة المطلقة في سوق السياحة الراقية" : "Distinction Built on Trusted Standards"}
             </h2>
           </div>
@@ -504,14 +504,14 @@ export const Home: React.FC = () => {
             ].map((card, idx) => (
               <div
                 key={idx}
-                className={`p-6 bg-primary-dark rounded-2xl border border-white/5 space-y-4 ${isRTL ? "text-right" : "text-left"
+                className={`p-6 bg-white rounded-2xl border border-primary/10 space-y-4 ${isRTL ? "text-right" : "text-left"
                   }`}
               >
                 <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 text-accent flex items-center justify-center">
                   {card.icon}
                 </div>
-                <h4 className="font-semibold text-base text-white font-display uppercase tracking-wide">{card.title}</h4>
-                <p className="text-xs text-white/50 leading-relaxed font-sans">{card.desc}</p>
+                <h4 className="font-semibold text-base text-primary font-display uppercase tracking-wide">{card.title}</h4>
+                <p className="text-xs text-primary/60 leading-relaxed font-sans">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -564,7 +564,7 @@ export const Home: React.FC = () => {
           ].map((rev, idx) => (
             <div
               key={idx}
-              className={`p-6 rounded-3xl bg-primary border border-white/5 space-y-4 hover:border-accent/10 transition-all ${isRTL ? "text-right" : "text-left"
+              className={`p-6 rounded-3xl bg-[#f0f4f8] border border-primary/10 space-y-4 hover:border-accent/10 transition-all ${isRTL ? "text-right" : "text-left"
                 }`}
             >
               <div className="flex gap-1 justify-start">
@@ -572,14 +572,14 @@ export const Home: React.FC = () => {
                   <Star key={i} size={15} className="fill-red-500 text-red-500" weight="fill" />
                 ))}
               </div>
-              <p className="text-xs text-white/70 leading-relaxed font-sans italic">
+              <p className="text-xs text-primary/60 leading-relaxed font-sans italic">
                 "{rev.review}"
               </p>
-              <div className="flex items-center gap-3 pt-3 border-t border-white/5">
+              <div className="flex items-center gap-3 pt-3 border-t border-primary/10">
                 <img src={rev.avatar} alt={rev.name} className="w-10 h-10 rounded-full border border-accent" />
                 <div>
-                  <h5 className="font-semibold text-sm text-white">{rev.name}</h5>
-                  <p className="text-[10px] text-white/40">{rev.role}</p>
+                  <h5 className="font-semibold text-sm text-primary">{rev.name}</h5>
+                  <p className="text-[10px] text-primary/60">{rev.role}</p>
                 </div>
               </div>
             </div>
@@ -599,21 +599,21 @@ export const Home: React.FC = () => {
           <h2 className="font-display font-black text-3xl sm:text-4xl uppercase tracking-wide">
             {t.galleryTitle}
           </h2>
-          <p className="text-white/60 text-sm max-w-2xl font-sans">
+          <p className="text-primary/60 text-sm max-w-2xl font-sans">
             {t.gallerySub}
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {galleryImages.map((img, idx) => (
-            <div key={idx} className="relative rounded-2xl overflow-hidden h-44 group cursor-pointer border border-white/10">
+            <div key={idx} className="relative rounded-2xl overflow-hidden h-44 group cursor-pointer border border-primary/10">
               <img
                 src={img}
                 alt="Client Gallery item"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Compass className="text-white animate-spin-reverse" size={20} weight="thin" />
+                <Compass className="text-primary animate-spin-reverse" size={20} weight="thin" />
               </div>
             </div>
           ))}
@@ -624,7 +624,7 @@ export const Home: React.FC = () => {
       <section className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center space-y-4 mb-16">
           <span className="text-xs font-bold tracking-[0.25em] text-accent uppercase">{t.faqTitle}</span>
-          <h2 className="font-display font-black text-3xl uppercase text-white">
+          <h2 className="font-display font-black text-3xl uppercase text-primary">
             {currentLanguage === "ar" ? "كل ما تود معرفته" : "CLARITY ON OUR PROTOCOLS"}
           </h2>
         </div>
@@ -633,7 +633,7 @@ export const Home: React.FC = () => {
           {faqs.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
-              <div key={idx} className="rounded-2xl bg-primary border border-white/5 overflow-hidden transition-all text-white">
+              <div key={idx} className="rounded-2xl bg-[#f0f4f8] border border-primary/10 overflow-hidden transition-all text-primary">
                 <button
                   id={`faq-btn-${idx}`}
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
@@ -641,10 +641,10 @@ export const Home: React.FC = () => {
                     }`}
                 >
                   <span className="font-display uppercase tracking-wide">{faq.q}</span>
-                  <ChevronDown size={18} className={`transform transition-transform ${isOpen ? "rotate-180 text-accent" : "text-white/60"}`} weight="thin" />
+                  <ChevronDown size={18} className={`transform transition-transform ${isOpen ? "rotate-180 text-accent" : "text-primary/60"}`} weight="thin" />
                 </button>
                 {isOpen && (
-                  <div className={`p-6 bg-primary-dark/40 border-t border-white/5 text-xs text-white/70 leading-relaxed font-sans whitespace-pre-line ${isRTL ? "text-right" : "text-left"
+                  <div className={`p-6 bg-white/40 border-t border-primary/10 text-xs text-primary/60 leading-relaxed font-sans whitespace-pre-line ${isRTL ? "text-right" : "text-left"
                     }`}>
                     {faq.a}
                   </div>

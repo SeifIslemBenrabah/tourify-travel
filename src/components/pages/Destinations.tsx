@@ -27,9 +27,9 @@ export const Destinations: React.FC = () => {
   // Filtered list
   const filteredList = useMemo(() => {
     return destinations.filter((dest) => {
-      const matchQuery = dest.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         dest.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         dest.description.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchQuery = dest.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        dest.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        dest.description.toLowerCase().includes(searchTerm.toLowerCase());
       const matchCat = selectedCategory === "all" || dest.category === selectedCategory;
       const matchPrice = dest.priceDZD <= priceCap;
       return matchQuery && matchCat && matchPrice;
@@ -52,11 +52,11 @@ export const Destinations: React.FC = () => {
   };
 
   return (
-    <div className="space-y-16 pb-20 text-white bg-primary-dark font-sans">
-      
+    <div className="space-y-16 pb-20 text-primary bg-white font-sans">
+
       {/* Banner Area */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-primary-dark/70 z-10" />
+      <section className="relative h-[55vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t h-full from-white via-white/95 to-white/0 z-10" />
         <img
           src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=1920&q=80"
           alt="Sahara Sandstorm"
@@ -66,10 +66,10 @@ export const Destinations: React.FC = () => {
           <span className="text-xs font-bold tracking-[0.25em] text-accent uppercase bg-accent/15 px-3 py-1 rounded-full border border-accent/20">
             {currentLanguage === "ar" ? "كتالوج توريفاي" : "TOURIFY EXPEDITIONS CATALOG"}
           </span>
-          <h1 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-wider text-white mt-3">
+          <h1 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-wider text-primary mt-3">
             {currentLanguage === "ar" ? "الوجهات وباقات النخبة" : "EXCLUSIVE DESTINATIONS DICTIONARY"}
           </h1>
-          <p className="text-xs sm:text-sm text-white/70 max-w-2xl mx-auto mt-2">
+          <p className="text-xs sm:text-sm text-primary/60 max-w-2xl mx-auto mt-2">
             {currentLanguage === "ar"
               ? "استكشف وتصفح الباقات الفيروزية المصممة للراحة المطلقة والخصوصية، من رمال ورسومات الصحراء إلى أفخم مدن البوسفور"
               : "Discover vacation guides customized for absolute recreation, spanning local dune deserts to European rivers"}
@@ -79,20 +79,20 @@ export const Destinations: React.FC = () => {
 
       {/* Filter and Content section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        
+
         {/* Horizontal filter options */}
-        <div className="p-6 rounded-3xl bg-primary border border-white/5 space-y-6 shadow-xl">
-          <div className="flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest border-b border-white/5 pb-3">
+        <div className="p-6 rounded-3xl bg-[#f0f4f8] border border-primary/10 space-y-6 shadow-xl">
+          <div className="flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest border-b border-primary/10 pb-3">
             <SlidersHorizontal size={16} weight="thin" />
             <span>{currentLanguage === "ar" ? "نظام تصفية متقدم" : "FILTER ENGINE"}</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            
+
             {/* Input keywords search */}
             <div className="space-y-1.5 text-left">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-white/40">{currentLanguage === "ar" ? "الكلمات الدلالية" : "Search Keyword"}</label>
-              <div className="flex items-center gap-2 bg-primary-dark px-3 py-2.5 rounded-xl border border-white/5">
+              <label className="text-[10px] font-bold uppercase tracking-wider text-primary/60">{currentLanguage === "ar" ? "الكلمات الدلالية" : "Search Keyword"}</label>
+              <div className="flex items-center gap-2 bg-white px-3 py-2.5 rounded-xl border border-primary/10">
                 <Search size={14} className="text-accent shrink-0" weight="thin" />
                 <input
                   id="filter-search-term"
@@ -103,14 +103,14 @@ export const Destinations: React.FC = () => {
                     setCurrentPage(1);
                   }}
                   placeholder="e.g. Turkey, Djanet, Rome..."
-                  className="bg-transparent text-xs w-full text-white outline-none"
+                  className="bg-transparent text-xs w-full text-primary outline-none"
                 />
               </div>
             </div>
 
             {/* Dropdown Category select */}
             <div className="space-y-1.5 text-left">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-white/40">{t.categoryLabel}</label>
+              <label className="text-[10px] font-bold uppercase tracking-wider text-primary/60">{t.categoryLabel}</label>
               <select
                 id="filter-category"
                 value={selectedCategory}
@@ -118,7 +118,7 @@ export const Destinations: React.FC = () => {
                   setSelectedCategory(e.target.value as any);
                   setCurrentPage(1);
                 }}
-                className="w-full bg-primary-dark text-xs text-white rounded-xl border border-white/5 p-3.5 focus:outline-none focus:ring-1 focus:ring-focus cursor-pointer font-semibold uppercase tracking-wide"
+                className="w-full bg-white text-xs text-primary rounded-xl border border-primary/10 p-3.5 focus:outline-none focus:ring-1 focus:ring-focus cursor-pointer font-semibold uppercase tracking-wide"
               >
                 <option value="all">{t.all}</option>
                 <option value="local">{t.local}</option>
@@ -128,7 +128,7 @@ export const Destinations: React.FC = () => {
 
             {/* Slider Price range */}
             <div className="space-y-1.5 text-left">
-              <div className="flex justify-between text-[10px] font-bold uppercase tracking-wider text-white/40">
+              <div className="flex justify-between text-[10px] font-bold uppercase tracking-wider text-primary/60">
                 <span>{t.priceRangeLabel}</span>
                 <span className="text-accent font-sans font-black">{formatPriceString(priceCap, currentCurrency, currentLanguage)}</span>
               </div>
@@ -144,9 +144,9 @@ export const Destinations: React.FC = () => {
                     setPriceCap(Number(e.target.value));
                     setCurrentPage(1);
                   }}
-                  className="w-full accent-accent bg-primary-dark rounded-lg cursor-pointer h-1.5"
+                  className="w-full accent-accent bg-white rounded-lg cursor-pointer h-1.5"
                 />
-                <div className="flex justify-between text-[9px] text-white/30 font-mono mt-1">
+                <div className="flex justify-between text-[9px] text-primary/60 font-mono mt-1">
                   <span>40,000 DA</span>
                   <span>400,000 DA</span>
                 </div>
@@ -155,24 +155,23 @@ export const Destinations: React.FC = () => {
 
             {/* Controls actions reset & Layout togglers */}
             <div className="flex md:flex-col lg:flex-row gap-3 items-end justify-between">
-              
+
               {/* Reset trigger */}
               <button
                 id="filter-reset-btn"
                 onClick={handleResetFilters}
-                className="w-full py-3 px-4 rounded-xl text-center border border-white/10 hover:border-white/35 text-xs text-white bg-transparent transition-all cursor-pointer font-bold uppercase tracking-wider"
+                className="w-full py-3 px-4 rounded-xl text-center border border-primary/10 hover:border-primary/10 text-xs text-primary bg-transparent transition-all cursor-pointer font-bold uppercase tracking-wider"
               >
                 {currentLanguage === "ar" ? "إعادة الضبط" : "Reset System"}
               </button>
 
               {/* Layout controllers */}
-              <div className="flex bg-primary-dark border border-white/5 rounded-xl p-1 shrink-0 h-11 items-center justify-center">
+              <div className="flex bg-white border border-primary/10 rounded-xl p-1 shrink-0 h-11 items-center justify-center">
                 <button
                   id="layout-toggle-grid"
                   onClick={() => setLayoutMode("grid")}
-                  className={`p-2 rounded-lg transition-all cursor-pointer ${
-                    layoutMode === "grid" ? "bg-accent text-white" : "text-white/40 hover:text-white"
-                  }`}
+                  className={`p-2 rounded-lg transition-all cursor-pointer ${layoutMode === "grid" ? "bg-accent-white/ hover:text-primary"
+                    : ""}`}
                   title="Grid visual"
                 >
                   <Grid size={15} weight="thin" />
@@ -180,9 +179,8 @@ export const Destinations: React.FC = () => {
                 <button
                   id="layout-toggle-plot"
                   onClick={() => setLayoutMode("plot")}
-                  className={`p-2 rounded-lg transition-all cursor-pointer ${
-                    layoutMode === "plot" ? "bg-accent text-white" : "text-white/40 hover:text-white"
-                  }`}
+                  className={`p-2 rounded-lg transition-all cursor-pointer ${layoutMode === "plot" ? "bg-accent-white/ hover:text-primary"
+                    : ""}`}
                   title="Plot coordinates visual"
                 >
                   <Map size={15} weight="thin" />
@@ -198,12 +196,12 @@ export const Destinations: React.FC = () => {
           /* Grid Card Layout List */
           <div className="space-y-12 animate-in fade-in duration-300">
             {paginatedList.length === 0 ? (
-              <div className="text-center py-20 bg-primary rounded-3xl border border-white/5 space-y-4">
-                <Compass className="text-white/20 mx-auto animate-pulse" size={50} weight="thin" />
-                <h3 className="font-display font-bold text-lg uppercase text-white tracking-wide">
+              <div className="text-center py-20 bg-[#f0f4f8] rounded-3xl border border-primary/10 space-y-4">
+                <Compass className="text-primary/60 mx-auto animate-pulse" size={50} weight="thin" />
+                <h3 className="font-display font-bold text-lg uppercase text-primary tracking-wide">
                   {currentLanguage === "ar" ? "عفواً، لا توجد نتائج مطابقة" : "NO MATCHING TOURS DETECTED"}
                 </h3>
-                <p className="text-xs text-white/50 max-w-sm mx-auto">
+                <p className="text-xs text-primary/60 max-w-sm mx-auto">
                   {currentLanguage === "ar"
                     ? "يرجى تعديل محفزات البحث وتحديد أسعار أكبر أو التواصل مع مستشارك الخاص عبر واتساب."
                     : "Try adjusting sliders, clearing keyword queries, or chat directly with concierge for custom reservations."}
@@ -223,7 +221,7 @@ export const Destinations: React.FC = () => {
                   return (
                     <div
                       key={dest.id}
-                      className="group relative rounded-3xl overflow-hidden bg-primary shadow-xl border border-white/5 flex flex-col hover:scale-[1.02] hover:-translate-y-1 transition-all duration-350"
+                      className="group relative rounded-3xl overflow-hidden bg-[#f0f4f8] shadow-xl border border-primary/10 flex flex-col hover:scale-[1.02] hover:-translate-y-1 transition-all duration-350"
                     >
                       {/* Product image */}
                       <div className="relative h-64 overflow-hidden">
@@ -232,10 +230,10 @@ export const Destinations: React.FC = () => {
                           alt={dest.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <span className="absolute top-4 left-4 bg-primary-dark/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase px-3 py-1.5 rounded-full border border-white/10 z-10">
+                        <span className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-primary text-[10px] font-bold uppercase px-3 py-1.5 rounded-full border border-primary/10 z-10">
                           {dest.category === "local" ? t.local : t.international}
                         </span>
-                        
+
                         {/* Bookmark action triggers */}
                       </div>
 
@@ -245,32 +243,32 @@ export const Destinations: React.FC = () => {
                           <div className="flex items-center gap-1 text-accent text-xs font-semibold">
                             <Star size={14} className="fill-accent text-accent" weight="thin" />
                             <span>{dest.rating}</span>
-                            <span className="text-white/45 font-normal">({dest.reviewsCount} {currentLanguage === "ar" ? "مراجعة" : "reviews"})</span>
+                            <span className="text-primary/60 font-normal">({dest.reviewsCount} {currentLanguage === "ar" ? "مراجعة" : "reviews"})</span>
                           </div>
 
-                          <h3 className="font-display font-bold text-xl uppercase text-white tracking-wide group-hover:text-accent transition-colors line-clamp-1">
+                          <h3 className="font-display font-bold text-xl uppercase text-primary tracking-wide group-hover:text-accent transition-colors line-clamp-1">
                             {dest.name}
                           </h3>
-                          
-                          <div className="flex items-center gap-1.5 text-xs text-white/55">
+
+                          <div className="flex items-center gap-1.5 text-xs text-primary/60">
                             <MapPin size={13} className="text-accent" weight="thin" />
                             <span className="truncate">{dest.country}</span>
                           </div>
                         </div>
 
                         {/* Description excerpt */}
-                        <p className="text-xs text-white/60 leading-relaxed font-sans line-clamp-2">
+                        <p className="text-xs text-primary/60 leading-relaxed font-sans line-clamp-2">
                           {dest.description}
                         </p>
 
-                        <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                        <div className="pt-4 border-t border-primary/10 flex items-center justify-between">
                           <div>
-                            <p className="text-[10px] uppercase text-white/40 font-bold">{t.durationLabel}</p>
-                            <p className="text-xs font-semibold text-white">{dest.duration}</p>
+                            <p className="text-[10px] uppercase text-primary/60 font-bold">{t.durationLabel}</p>
+                            <p className="text-xs font-semibold text-primary">{dest.duration}</p>
                           </div>
 
                           <div className={`${isRTL ? "text-left" : "text-right"}`}>
-                            <p className="text-[10px] uppercase text-white/40 font-bold">
+                            <p className="text-[10px] uppercase text-primary/60 font-bold">
                               {currentLanguage === "ar" ? "تبدأ من" : "Starting price"}
                             </p>
                             <p className="text-base font-black text-accent font-sans">
@@ -286,7 +284,7 @@ export const Destinations: React.FC = () => {
                             setActiveDestinationId(dest.id);
                             navigateTo("destination-details", dest.id);
                           }}
-                          className="w-full mt-2 py-3 bg-white/5 hover:bg-accent text-white hover:text-white border border-white/10 hover:border-transparent rounded-2xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1"
+                          className="w-full mt-2 py-3 bg-white/5 hover:bg-accent-white border border-primary/10 hover:border-transparent rounded-2xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1"
                         >
                           <span>{t.exploreDetail}</span>
                           <Eye size={14} weight="thin" />
@@ -312,9 +310,8 @@ export const Destinations: React.FC = () => {
                         setCurrentPage(pageNum);
                         window.scrollTo({ top: 300, behavior: "smooth" });
                       }}
-                      className={`w-9 h-9 rounded-full text-xs font-semibold transition-all cursor-pointer flex items-center justify-center ${
-                        currentPage === pageNum ? "bg-accent text-white font-bold" : "bg-primary text-white/70 hover:bg-white/10"
-                      }`}
+                      className={`w-9 h-9 rounded-full text-xs font-semibold transition-all cursor-pointer flex items-center justify-center ${currentPage === pageNum ? "bg-accent-white/ hover:bg-white/10"
+                        : ""}`}
                     >
                       {pageNum}
                     </button>
@@ -325,11 +322,11 @@ export const Destinations: React.FC = () => {
           </div>
         ) : (
           /* Plot Visual Representation (Architectural Honesty Directive) */
-          <div className="animate-in zoom-in-95 duration-200 p-8 rounded-3xl bg-primary border border-white/5 space-y-8 shadow-xl text-center">
+          <div className="animate-in zoom-in-95 duration-200 p-8 rounded-3xl bg-[#f0f4f8] border border-primary/10 space-y-8 shadow-xl text-center">
             <Globe2 className="text-accent mx-auto animate-spin-slow" size={48} weight="thin" />
             <div className="space-y-2">
               <h3 className="font-display font-bold text-xl uppercase tracking-wider">{currentLanguage === "ar" ? "منظومة إحداثيات السفر الملكي" : "TOURIFY SEAMLESS COORDINATES MAP"}</h3>
-              <p className="text-xs text-white/50 max-w-md mx-auto">
+              <p className="text-xs text-primary/60 max-w-md mx-auto">
                 {currentLanguage === "ar"
                   ? "نقاط تصفية إخبارية تعود للجزائر العاصمة لربط مسارات السفر الفاخرة بشكل مباشر."
                   : "Graphic depiction showing geographic locations of current premium itineraries."}
@@ -346,7 +343,7 @@ export const Destinations: React.FC = () => {
                     setActiveDestinationId(dest.id);
                     navigateTo("destination-details", dest.id);
                   }}
-                  className="p-4 rounded-2xl bg-primary-dark/65 hover:bg-primary-dark border border-white/5 hover:border-accent/40 text-left transition-all cursor-pointer group space-y-2"
+                  className="p-4 rounded-2xl bg-white/65 hover:bg-white border border-primary/10 hover:border-accent/40 text-left transition-all cursor-pointer group space-y-2"
                 >
                   <div className="flex justify-between items-center">
                     <span className="px-2 py-0.5 rounded-md bg-accent/15 text-accent text-[9px] font-bold uppercase tracking-wide">
@@ -357,7 +354,7 @@ export const Destinations: React.FC = () => {
                   <h5 className="font-display font-semibold text-sm line-clamp-1 group-hover:text-accent transition-colors">
                     {dest.name}
                   </h5>
-                  <p className="text-[10px] text-white/40 font-mono flex items-center gap-1">
+                  <p className="text-[10px] text-primary/60 font-mono flex items-center gap-1">
                     <MapPin size={10} className="text-accent" weight="thin" /> {dest.country}
                   </p>
                 </div>

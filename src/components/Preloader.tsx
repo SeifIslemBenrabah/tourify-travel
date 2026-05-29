@@ -18,7 +18,7 @@ export const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) 
 
   return (
     <div
-      className={`fixed inset-0 z-[999] flex flex-col items-center justify-center bg-primary-dark select-none transition-opacity duration-700 ease-in-out ${
+      className={`fixed inset-0 z-[999] flex flex-col items-center justify-center bg-white select-none transition-opacity duration-700 ease-in-out ${
         fadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >

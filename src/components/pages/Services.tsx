@@ -97,11 +97,11 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-16 pb-20 text-white bg-primary-dark font-sans">
-      
+    <div className="space-y-16 pb-20 text-primary bg-white font-sans">
+
       {/* Cinematic Banner */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-primary-dark/70 z-10" />
+      <section className="relative h-[55vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t h-full from-white via-white/95 to-white/0 z-10" />
         <img
           src="https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?auto=format&fit=crop&w=1920&q=80"
           alt="Bespoke services banner"
@@ -111,10 +111,10 @@ export const Services: React.FC = () => {
           <span className="text-xs font-bold tracking-[0.25em] text-accent uppercase bg-accent/15 px-3 py-1 rounded-full border border-accent/20">
             {currentLanguage === "ar" ? "خدمات توريفاي الشاملة" : "TOURIFY Bespoke Services"}
           </span>
-          <h1 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-wider text-white mt-3">
+          <h1 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-wider text-primary mt-3">
             {currentLanguage === "ar" ? "الرعاية والخدمات الاستثنائية" : " Bespoke Travel Services"}
           </h1>
-          <p className="text-xs sm:text-sm text-white/70 max-w-2xl mx-auto mt-2">
+          <p className="text-xs sm:text-sm text-primary/60 max-w-2xl mx-auto mt-2">
             {t.servicesSub}
           </p>
         </div>
@@ -126,22 +126,22 @@ export const Services: React.FC = () => {
           {mainServicesList.map((srv, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-primary hover:bg-[#1c4b6e] border border-white/5 hover:border-accent/10 transition-all duration-300 flex flex-col justify-between"
+              className="p-8 rounded-3xl bg-[#f0f4f8] hover:bg-[#1c4b6e] border border-primary/10 hover:border-accent/10 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-5">
-                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 text-accent flex items-center justify-center">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-primary/10 text-accent flex items-center justify-center">
                   {srv.icon}
                 </div>
                 <div className="space-y-2">
-                  <h4 className="font-display font-bold text-lg uppercase tracking-wider text-white">
+                  <h4 className="font-display font-bold text-lg uppercase tracking-wider text-primary">
                     {srv.title}
                   </h4>
-                  <p className="text-xs text-white/55 leading-relaxed font-sans min-h-[50px]">
+                  <p className="text-xs text-primary/60 leading-relaxed font-sans min-h-[50px]">
                     {srv.desc}
                   </p>
                 </div>
 
-                <ul className="space-y-2 border-t border-white/5 pt-4 text-[11px] font-semibold text-white/75">
+                <ul className="space-y-2 border-t border-primary/10 pt-4 text-[11px] font-semibold text-primary/60">
                   {srv.bullets.map((b, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
@@ -155,7 +155,7 @@ export const Services: React.FC = () => {
               <button
                 id={`srv-action-btn-${idx}`}
                 onClick={() => navigateTo("contact")}
-                className="w-full mt-6 py-2.5 rounded-xl bg-white/5 group-hover:bg-accent border border-white/10 hover:border-transparent text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1 hover:bg-accent"
+                className="w-full mt-6 py-2.5 rounded-xl bg-white/5 group-hover:bg-accent border border-primary/10 hover:border-transparent text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1 hover:bg-accent"
               >
                 <span>{currentLanguage === "ar" ? "استفسر الآن" : "Order Bespoke Solution"}</span>
                 <ArrowUpRight size={14} weight="thin" />
@@ -165,12 +165,12 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Big CTA banner inside the services page */}
-        <div className="rounded-3xl overflow-hidden relative bg-primary items-center p-8 md:p-12 border border-white/10 shadow-2xl flex flex-col md:flex-row justify-between gap-6 mt-16 max-w-5xl mx-auto text-left">
+        <div className="rounded-3xl overflow-hidden relative bg-[#f0f4f8] items-center p-8 md:p-12 border border-primary/10 shadow-2xl flex flex-col md:flex-row justify-between gap-6 mt-16 max-w-5xl mx-auto text-left">
           <div className="space-y-2 max-w-xl">
             <h4 className="font-display font-black text-xl uppercase tracking-wider">
               {currentLanguage === "ar" ? "هل تحتاج لبرنامج سياحي مخصص بالكامل؟" : "DEMAND A PURE CUSTOM EXPERIENCE?"}
             </h4>
-            <p className="text-xs text-white/60 font-sans leading-relaxed">
+            <p className="text-xs text-primary/60 font-sans leading-relaxed">
               {currentLanguage === "ar"
                 ? "تحدث بوضوح مع مستشار السفر الخاص بنوميديا واشرح متطلبات رحلتك وتواريخ الفنادق والرحلات الجوية وسنقوم بصياغة برنامج استثنائي لكم."
                 : "Describe your destination, exact calendar dates, and luxury accommodation parameters. We will compile a private pre-vetted itinerary in 24 hours."}
@@ -180,7 +180,7 @@ export const Services: React.FC = () => {
           <button
             id="srv-contact-concierge"
             onClick={() => navigateTo("contact")}
-            className="py-3 px-8 rounded-2xl bg-accent hover:bg-accent-hover text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shrink-0 cursor-pointer"
+            className="py-3 px-8 rounded-2xl bg-accent-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shrink-0 cursor-pointer"
           >
             {currentLanguage === "ar" ? "تواصل مع مستشار السفر" : "Contact Elysian Concierge"}
           </button>
