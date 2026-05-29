@@ -457,13 +457,13 @@ export const Home: React.FC = () => {
           ].map((srv, idx) => (
             <div
               key={idx}
-              className={`p-8 rounded-3xl bg-[#f0f4f8] hover:bg-[#1c4b6e] border border-primary/10 hover:border-accent/15 transition-all duration-300 ${isRTL ? "text-right" : "text-left"
+              className={`p-8 rounded-3xl bg-[#f0f4f8] border border-primary/10 hover:border-accent/15 transition-all duration-300 ${isRTL ? "text-right" : "text-left"
                 }`}
             >
               <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-primary/10">
                 {srv.icon}
               </div>
-              <h4 className="font-display font-bold text-lg uppercase tracking-wider text-[#FFFFFF]">
+              <h4 className="font-display font-bold text-lg uppercase tracking-wider text-primary">
                 {srv.title}
               </h4>
               <p className="text-xs text-primary/60 leading-relaxed font-sans mt-3">
