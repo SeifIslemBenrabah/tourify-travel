@@ -92,13 +92,13 @@ export const Offers: React.FC = () => {
               className="rounded-3xl overflow-hidden bg-[#f0f4f8] shadow-xl border border-primary/10 flex flex-col md:flex-row relative hover:scale-[1.01] transition-all"
             >
               {/* Product background cover media */}
-              <div className="w-full md:w-2/5 h-64 md:h-full min-h-[250px] relative">
+              <div className="w-full md:w-2/5 min-h-[250px] relative">
                 <img
                   src={item.bgImage}
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-transparent to-transparent hidden md:block" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent hidden md:block" />
                 <div className="absolute top-4 left-4 bg-accent text-white text-[10px] font-black uppercase px-4 py-1.5 rounded-full shadow-lg border border-accent/20 flex items-center gap-1">
                   <Percent size={12} weight="thin" />
                   <span>{item.discountBadge}</span>
